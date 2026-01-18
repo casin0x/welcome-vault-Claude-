@@ -1,51 +1,61 @@
 import React from 'react';
-import { Repeat, Gift, Target } from 'lucide-react';
+import { Gift, RefreshCw, Target } from 'lucide-react';
 
 const PostVault: React.FC = () => {
   const rewards = [
     {
-      icon: <Gift className="w-8 h-8 text-pink-500" />,
-      title: "Cashback Offers",
-      desc: "Receive personalized cashback offers on your gameplay."
+      icon: <Gift className="w-6 h-6" />,
+      title: "Cashback Rewards",
+      description: "Personalized cashback offers based on your activity.",
     },
     {
-      icon: <Repeat className="w-8 h-8 text-blue-500" />,
-      title: "Personalized Reloads",
-      desc: "Deposit bonuses tailored to your playstyle and preferences."
+      icon: <RefreshCw className="w-6 h-6" />,
+      title: "Reload Bonuses",
+      description: "Exclusive deposit bonuses tailored to your style.",
     },
     {
-      icon: <Target className="w-8 h-8 text-purple-500" />,
-      title: "Retargeting Bonuses",
-      desc: "Behavior-based bonuses that adapt to your activity level."
-    }
+      icon: <Target className="w-6 h-6" />,
+      title: "VIP Perks",
+      description: "Behavior-based rewards that grow with you.",
+    },
   ];
 
   return (
-    <section id="rewards" className="py-14 bg-casino-black relative overflow-hidden">
-       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-purple-900/20 rounded-full blur-[120px] pointer-events-none"></div>
-       
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="text-center mb-8">
-          <h2 className="text-purple-500 font-bold tracking-widest text-sm uppercase mb-2">After The Vault</h2>
-          <h3 className="text-3xl md:text-5xl font-bold text-white">What Happens Next?</h3>
-          <p className="text-gray-400 mt-4 text-sm">Once the Vault completes or expires, players continue receiving rewards.</p>
+    <section id="rewards" className="py-24 md:py-32 bg-apple-black relative">
+      <div className="section-divider absolute top-0 left-0 right-0"></div>
+
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <p className="text-casino-gold text-sm font-medium tracking-wide uppercase mb-4">After The Vault</p>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight mb-4">
+            The rewards continue.
+          </h2>
+          <p className="text-xl text-apple-gray max-w-2xl mx-auto">
+            Once your Vault completes, you unlock access to ongoing player rewards.
+          </p>
         </div>
 
+        {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {rewards.map((item, idx) => (
-             <div key={idx} className="glass-panel p-6 rounded-2xl text-center hover:-translate-y-2 transition-transform duration-300">
-                <div className="mb-4 inline-block p-4 bg-white/5 rounded-full">
-                    {item.icon}
-                </div>
-                <h4 className="text-lg font-bold text-white mb-2">{item.title}</h4>
-                <p className="text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-             </div>
+          {rewards.map((reward, index) => (
+            <div
+              key={index}
+              className="glass-card-light rounded-2xl p-8 text-center hover:bg-white/[0.05] transition-all duration-300 group"
+            >
+              <div className="w-14 h-14 mx-auto rounded-2xl bg-casino-gold/10 flex items-center justify-center mb-6 text-casino-gold group-hover:bg-casino-gold/20 transition-colors duration-300">
+                {reward.icon}
+              </div>
+              <h3 className="text-xl font-semibold text-white mb-3">{reward.title}</h3>
+              <p className="text-apple-gray text-sm leading-relaxed">{reward.description}</p>
+            </div>
           ))}
         </div>
-        
-        <div className="mt-8 text-center">
-            <p className="text-[10px] text-gray-600 uppercase tracking-widest mb-4">No Rakeback Included in this Promotion</p>
-        </div>
+
+        {/* Note */}
+        <p className="text-center text-apple-gray text-sm mt-12">
+          Rakeback is not included in the Welcome Vault promotion.
+        </p>
       </div>
     </section>
   );

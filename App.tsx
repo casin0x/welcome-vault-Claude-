@@ -9,9 +9,8 @@ import VaultFAQ from './components/VaultFAQ';
 
 function App() {
   return (
-    <div className="min-h-screen bg-casino-black text-white selection:bg-brand-gold selection:text-black relative">
-      <div className="bg-noise"></div>
-      <main className="relative z-10">
+    <div className="min-h-screen bg-apple-black text-white selection:bg-casino-gold selection:text-black">
+      <main>
         <Hero />
         <VaultExplainer />
         <VaultCalculator />
